@@ -1,12 +1,12 @@
 #include <stdio.h>
 
-int ft_memcmp(const void* ptr1, const void* ptr2, int num) 
+int ft_memcmp(const void* s1, const void* s2, size_t n) 
 {
-    const unsigned char* p1 = (const unsigned char*)ptr1;
-    const unsigned char* p2 = (const unsigned char*)ptr2;
+    const unsigned char* p1 = (const unsigned char*)s1;
+    const unsigned char* p2 = (const unsigned char*)s2;
 
     int i = 0;
-    while (i < num)
+    while (i < n)
     {
         if (p1[i] != p2[i])
             return p1[i] - p2[i];

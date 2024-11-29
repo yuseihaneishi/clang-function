@@ -1,6 +1,8 @@
-void ft_bzero(void *s, int n) {
+void ft_bzero(void *s, int n) 
+{
     unsigned char *ptr = s;
-    while (n > 0) {
+    while (n > 0) 
+    {
         *ptr++ = 0;
         n--;
     }
