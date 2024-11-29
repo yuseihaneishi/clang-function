@@ -8,12 +8,12 @@ void ft_bzero(void *s, int n)
     }
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int main() {
-    char buffer[10] = "Hello";
-    printf("Before: '%s'\n", buffer);
-    ft_bzero(buffer, 5);
-    printf("After: '%s'\n", buffer);
-    return 0;
-}
+// int main() {
+//     char buffer[10] = "Hello";
+//     printf("Before: '%s'\n", buffer);
+//     ft_bzero(buffer, 5);
+//     printf("After: '%s'\n", buffer);
+//     return 0;
+// }

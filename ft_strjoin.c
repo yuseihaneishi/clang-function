@@ -33,12 +33,12 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (str);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int main() 
-{
-    char *result = ft_strjoin("Hello, ", "World!");
-    printf("%s\n", result);
-    free(result);
-    return 0;
-}
+// int main() 
+// {
+//     char *result = ft_strjoin("Hello, ", "World!");
+//     printf("%s\n", result);
+//     free(result);
+//     return 0;
+// }
