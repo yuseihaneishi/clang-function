@@ -6,13 +6,13 @@
 /*   By: yhaneish <yhaneish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 20:29:44 by yhaneish          #+#    #+#             */
-/*   Updated: 2024/11/30 20:29:45 by yhaneish         ###   ########.fr       */
+/*   Updated: 2024/11/30 21:18:06 by yhaneish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isdigit(int c)
 {
-	if (c >= '1' && c <= '9')
+	if (c >= '0' && c <= '9')
 		return (1);
 	else
 		return (0);

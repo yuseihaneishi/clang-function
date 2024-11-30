@@ -6,7 +6,7 @@
 /*   By: yhaneish <yhaneish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 20:28:44 by yhaneish          #+#    #+#             */
-/*   Updated: 2024/11/30 20:56:00 by yhaneish         ###   ########.fr       */
+/*   Updated: 2024/11/30 21:18:45 by yhaneish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,11 @@
 
 int	ft_isalnum(int c)
 {
-	return (ft_isalpha(c) || ft_isdigit(c));
+	if (c >= 'A' && c <= 'Z')
+		return (1);
+	if (c >= 'a' && c <= 'z')
+		return (1);
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }

@@ -6,28 +6,30 @@
 /*   By: yhaneish <yhaneish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 20:45:13 by yhaneish          #+#    #+#             */
-/*   Updated: 2024/11/30 20:45:24 by yhaneish         ###   ########.fr       */
+/*   Updated: 2024/11/30 21:07:26 by yhaneish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strrchr(const char *str, int c)
-{
-	const char	*result;
+#include "libft.h"
 
-	result = NULL;
-	while (*str)
+char	*ft_strrchr(const char *s, int c)
+{
+	const char	*last;
+	char		ch;
+
+	last = NULL;
+	ch = (char)c;
+	while (*s)
 	{
-		if (*str == c)
-		{
-			result = str;
-		}
-		str++;
+		if (*s == ch)
+			last = s;
+		s++;
 	}
-	if (c == '\0')
+	if (ch == '\0')
 	{
-		return ((char *)str);
+		return ((char *)s);
 	}
-	return ((char *)result);
+	return ((char *)last);
 }
 
 // #include <stdio.h>
