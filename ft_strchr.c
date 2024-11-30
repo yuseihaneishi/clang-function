@@ -6,7 +6,7 @@
 /*   By: yhaneish <yhaneish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 20:38:58 by yhaneish          #+#    #+#             */
-/*   Updated: 2024/11/30 21:50:50 by yhaneish         ###   ########.fr       */
+/*   Updated: 2024/11/30 22:18:59 by yhaneish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,18 @@
 
 char	*ft_strchr(const char *str, int c)
 {
+	char	ch;
+
+	ch = (char)c;
 	if (!str)
 		return (NULL);
 	while (*str)
 	{
-		if (*str == c)
+		if (*str == ch)
 			return ((char *)str);
 		str++;
 	}
-	if (c == '\0')
+	if (ch == '\0')
 		return ((char *)str);
 	return (NULL);
 }
