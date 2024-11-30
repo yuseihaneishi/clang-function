@@ -6,7 +6,7 @@
 /*   By: yhaneish <yhaneish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 20:47:35 by yhaneish          #+#    #+#             */
-/*   Updated: 2024/11/30 20:47:36 by yhaneish         ###   ########.fr       */
+/*   Updated: 2024/11/30 20:57:30 by yhaneish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t i;
-	size_t j;
-	char *str;
+	size_t	i;
+	size_t	j;
+	char	*str;
 
 	str = (char *)malloc(sizeof(*s) * (len + 1));
 	if (!str)

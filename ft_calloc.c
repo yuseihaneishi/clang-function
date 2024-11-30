@@ -6,7 +6,7 @@
 /*   By: yhaneish <yhaneish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 20:28:22 by yhaneish          #+#    #+#             */
-/*   Updated: 2024/11/30 20:28:23 by yhaneish         ###   ########.fr       */
+/*   Updated: 2024/11/30 20:55:49 by yhaneish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_calloc(size_t n, size_t size)
 {
-	void *ptr;
+	void	*ptr;
 
 	ptr = (void *)malloc(n * size);
 	if (!ptr)

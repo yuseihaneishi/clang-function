@@ -6,7 +6,7 @@
 /*   By: yhaneish <yhaneish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 20:38:04 by yhaneish          #+#    #+#             */
-/*   Updated: 2024/11/30 20:38:05 by yhaneish         ###   ########.fr       */
+/*   Updated: 2024/11/30 20:57:08 by yhaneish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char digit;
-	long num;
+	char	digit;
+	long	num;
 
 	num = n;
 	if (num < 0)
