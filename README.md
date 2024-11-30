@@ -1,2 +1,2 @@
-# 42tokyo_libft
-42tokyo libft課題
+# clang-function
+Clangの関数を自作してみた

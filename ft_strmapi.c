@@ -1,28 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yhaneish <yhaneish@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/30 20:41:29 by yhaneish          #+#    #+#             */
+/*   Updated: 2024/11/30 20:41:31 by yhaneish         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char    *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-    char    *str;
-    size_t  i;
+	char	*str;
+	size_t	i;
 
-    if (!s || !f)
-        return (NULL);
-
-    str = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
-    if (!str)
-        return (NULL);
-
-    i = 0;
-    while (s[i])
-    {
-        str[i] = f(i, s[i]);
-        i++;
-    }
-    str[i] = '\0';
-
-    return (str);
+	if (!s || !f)
+		return (NULL);
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		str[i] = f(i, s[i]);
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
-
 
 // #include <stdio.h>
 // #include <ctype.h>
@@ -31,7 +39,7 @@ char    *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 // {
 //     if (islower(c))
 //         return (char)toupper(c);
-//     return c;
+//     return (c);
 // }
 
 // int main(void)
@@ -49,5 +57,5 @@ char    *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 //     {
 //         printf("Memory allocation failed!\n");
 //     }
-//     return 0;
+//     return (0);
 // }

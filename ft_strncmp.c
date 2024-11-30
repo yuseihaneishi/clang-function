@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yhaneish <yhaneish@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/30 20:41:55 by yhaneish          #+#    #+#             */
+/*   Updated: 2024/11/30 20:41:56 by yhaneish         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
 	unsigned int	i;
@@ -14,37 +26,37 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 	return (0);
 }
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <string.h>
 
-int	main(int argc, char *argv[])
-{
-	int i;
-	int j;
-	unsigned int n;
+// int	main(int argc, char *argv[])
+// {
+// 	int i;
+// 	int j;
+// 	unsigned int n;
 
-	char a[] = "hello";
-	i = 0;
-	if (argc < 2)
-	{
-		printf("%s", argv[0]);
-		return (1);
-	}
-	if (argc < 3)
-	{
-		printf("Usage: %s <string> <number>", argv[0]);
-		return (1);
-	}
-	while (i < argc)
-	{
-		printf("%s\n", argv[i]);
-		i++;
-	}
+// 	char a[] = "hello";
+// 	i = 0;
+// 	if (argc < 2)
+// 	{
+// 		printf("%s", argv[0]);
+// 		return (1);
+// 	}
+// 	if (argc < 3)
+// 	{
+// 		printf("Usage: %s <string> <number>", argv[0]);
+// 		return (1);
+// 	}
+// 	while (i < argc)
+// 	{
+// 		printf("%s\n", argv[i]);
+// 		i++;
+// 	}
 
-	n = atoi(argv[2]);
-	j = ft_strncmp(a, argv[1], n);
+// 	n = atoi(argv[2]);
+// 	j = ft_strncmp(a, argv[1], n);
 
-	printf("Result : %d\n", j);
-	printf("Result : %d\n", strncmp(a, argv[1], n));
-}
+// 	printf("Result : %d\n", j);
+// 	printf("Result : %d\n", strncmp(a, argv[1], n));
+// }

@@ -1,18 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yhaneish <yhaneish@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/30 20:46:57 by yhaneish          #+#    #+#             */
+/*   Updated: 2024/11/30 20:47:01 by yhaneish         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
-
-static int  ft_set_check(char c, char const *set)
+static int	ft_set_check(char c, char const *set)
 {
 	size_t	i;
 
@@ -26,7 +26,7 @@ static int  ft_set_check(char c, char const *set)
 	return (0);
 }
 
-char    *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*str;
 	size_t	i;
@@ -39,7 +39,7 @@ char    *ft_strtrim(char const *s1, char const *set)
 	end = ft_strlen(s1);
 	while (end > start && ft_set_check(s1[end - 1], set))
 		end--;
-	str = (char*)malloc(sizeof(*s1) * (end - start + 1));
+	str = (char *)malloc(sizeof(*s1) * (end - start + 1));
 	if (!str)
 		return (NULL);
 	i = 0;
@@ -67,5 +67,5 @@ char    *ft_strtrim(char const *s1, char const *set)
 //     printf("Trimmed: '%s'\n", result);
 //     free(result);
 
-//     return 0;
+//     return (0);
 // }

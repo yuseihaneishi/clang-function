@@ -1,17 +1,29 @@
-#include <stdio.h>
-char* ft_strchr(const char* str, int c) 
-{
-    while (*str) 
-    {
-        if (*str == c)
-            return (char*)str;
-        str++;
-    }
-    if (c == '\0')
-        return (char*)str;
-    return NULL;
-}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yhaneish <yhaneish@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/30 20:38:58 by yhaneish          #+#    #+#             */
+/*   Updated: 2024/11/30 20:38:59 by yhaneish         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include <stdio.h>
+
+char	*ft_strchr(const char *str, int c)
+{
+	while (*str)
+	{
+		if (*str == c)
+			return ((char *)str);
+		str++;
+	}
+	if (c == '\0')
+		return ((char *)str);
+	return (NULL);
+}
 
 // int main() {
 //     const char* text = "Hello, world!";
@@ -24,5 +36,5 @@ char* ft_strchr(const char* str, int c)
 //         printf("'%c' not found\n", target);
 //     }
 
-//     return 0;
+//     return (0);
 // }
