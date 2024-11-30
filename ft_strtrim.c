@@ -49,23 +49,23 @@ char    *ft_strtrim(char const *s1, char const *set)
 	return (str);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int main(void)
-{
-    char *result;
+// int main(void)
+// {
+//     char *result;
 
-    result = ft_strtrim("   Hello World!   ", " ");
-    printf("Trimmed: '%s'\n", result);
-    free(result);
+//     result = ft_strtrim("   Hello World!   ", " ");
+//     printf("Trimmed: '%s'\n", result);
+//     free(result);
 
-    result = ft_strtrim("!!!Hello!!!", "!");
-    printf("Trimmed: '%s'\n", result);
-    free(result);
+//     result = ft_strtrim("!!!Hello!!!", "!");
+//     printf("Trimmed: '%s'\n", result);
+//     free(result);
 
-    result = ft_strtrim("", " ");
-    printf("Trimmed: '%s'\n", result);
-    free(result);
+//     result = ft_strtrim("", " ");
+//     printf("Trimmed: '%s'\n", result);
+//     free(result);
 
-    return 0;
-}
+//     return 0;
+// }

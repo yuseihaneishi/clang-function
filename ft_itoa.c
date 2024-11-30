@@ -1,47 +1,45 @@
 #include "libft.h"
 
-static int  ft_abs(int nbr)
+static int	get_num_len(int n)
 {
-	return ((nbr < 0) ? -nbr : nbr);
-}
+	int	len;
 
-static void ft_strrev(char *str)
-{
-	size_t	length;
-	size_t	i;
-	char	tmp;
-
-	length = ft_strlen(str);
-	i = 0;
-	while (i < length / 2)
-	{
-		tmp = str[i];
-		str[i] = str[length - i - 1];
-		str[length - i - 1] = tmp;
-		i++;
-	}
-}
-
-char    *ft_itoa(int n)
-{
-	char	*str;
-	int		sign;
-	size_t	length;
-
-	sign = (n < 0);
-	if (!(str = ft_calloc(11 + sign, sizeof(*str))))
-		return (NULL);
-	if (n == 0)
-		str[0] = '0';
-	length = 0;
+	len = 0;
+	if (n <= 0)
+		len = 1;
 	while (n != 0)
 	{
-		str[length++] = '0' + ft_abs(n % 10);
-		n = (n / 10);
+		n /= 10;
+		len++;
 	}
-	if (sign)
-		str[length] = '-';
-	ft_strrev(str);
+	return (len);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	int		len;
+	long	num;
+
+	len = get_num_len(n);
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	str[len] = '\0';
+	num = n;
+	if (num == 0)
+		str[0] = '0';
+	if (num < 0)
+	{
+		str[0] = '-';
+		num = -num;
+	}
+	while (num > 0)
+	{
+		len--;
+		str[len] = (num % 10) + '0';
+		num /= 10;
+	}
 	return (str);
 }
 

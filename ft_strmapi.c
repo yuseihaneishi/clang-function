@@ -1,35 +1,53 @@
 #include "libft.h"
 
-
 char    *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*str;
-	size_t	i;
+    char    *str;
+    size_t  i;
 
-	if (!(str = ft_strdup(s)))
-		return (NULL);
-	i = 0;
-	while (str[i])
-	{
-		str[i] = (*f)(i, str[i]);
-		i++;
-	}
-	return (str);
+    if (!s || !f)
+        return (NULL);
+
+    str = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+    if (!str)
+        return (NULL);
+
+    i = 0;
+    while (s[i])
+    {
+        str[i] = f(i, s[i]);
+        i++;
+    }
+    str[i] = '\0';
+
+    return (str);
 }
 
-// #include <stdio.h>
 
-// static char toupper_func(unsigned int index, char c) 
+// #include <stdio.h>
+// #include <ctype.h>
+
+// char to_uppercase(unsigned int i, char c)
 // {
-// 	(void)index;
-// 	return (c >= 'a' && c <= 'z') ? c - 32 : c;
+//     if (islower(c))
+//         return (char)toupper(c);
+//     return c;
 // }
 
 // int main(void)
 // {
-//     char    *result;
-//     result = ft_strmapi("hello", toupper_func);
-//     printf("Result: %s\n", result);
-//     free(result);
+//     char *s = "hello, world!";
+//     char *result = ft_strmapi(s, to_uppercase);
+
+//     if (result)
+//     {
+//         printf("Original: %s\n", s);
+//         printf("Modified: %s\n", result);
+//         free(result);
+//     }
+//     else
+//     {
+//         printf("Memory allocation failed!\n");
+//     }
 //     return 0;
 // }

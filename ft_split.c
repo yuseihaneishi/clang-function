@@ -1,107 +1,81 @@
 #include "libft.h"
 
-static char **ft_alloc_split(char const *s, char c)
+static int	count_words(char const *s, char c)
 {
-	size_t	i;
-	char	**split;
-	size_t	total;
+	int	count;
+	int	in_word;
 
-	i = 0;
-	total = 0;
-	while (s[i])
+	count = 0;
+	in_word = 0;
+	while (*s)
 	{
-		if (s[i] == c)
-			total++;
-		i++;
+		if (*s != c && !in_word)
+		{
+			in_word = 1;
+			count++;
+		}
+		else if (*s == c)
+			in_word = 0;
+		s++;
 	}
-	split = (char**)malloc(sizeof(s) * (total + 2));
-	if (!split)
-		return (NULL);
-	return (split);
+	return (count);
 }
 
-void    *ft_free_all_split_alloc(char **split, size_t elts)
+static char	*get_next_word(char const **s, char c)
 {
-	size_t	i;
+	char		*word;
+	int			len;
+	char const	*start;
 
-	i = 0;
-	while (i < elts)
+	len = 0;
+	start = *s;
+	while (**s && **s != c)
 	{
-		free(split[i]);
-		i++;
+		len++;
+		(*s)++;
 	}
-	free(split);
+	word = malloc(sizeof(char) * (len + 1));
+	if (!word)
+		return (NULL);
+	word[len] = '\0';
+	while (len--)
+		word[len] = start[len];
+	return (word);
+}
+
+static char	**free_result(char **result, int i)
+{
+	while (i > 0)
+		free(result[--i]);
+	free(result);
 	return (NULL);
 }
 
-static void *ft_split_range(char **split, char const *s,
-		t_split_next *st, t_split_next *lt)
+char	**ft_split(char const *s, char c)
 {
-	split[lt->length] = ft_substr(s, st->start, st->length);
-	if (!split[lt->length])
-		return (ft_free_all_split_alloc(split, lt->length));
-	lt->length++;
-	return (split);
-}
+	char	**result;
+	int		i;
+	int		word_count;
 
-static void *ft_split_by_char(char **split, char const *s, char c)
-{
-	size_t			i;
-	t_split_next	st;
-	t_split_next	lt;
-
+	if (!s)
+		return (NULL);
+	word_count = count_words(s, c);
+	result = malloc(sizeof(char *) * (word_count + 1));
+	if (!result)
+		return (NULL);
 	i = 0;
-	lt.length = 0;
-	lt.start = 0;
-	while (s[i])
+	while (*s)
 	{
-		if (s[i] == c)
+		if (*s != c)
 		{
-			st.start = lt.start;
-			st.length = (i - lt.start);
-			if (i > lt.start && !ft_split_range(split, s, &st, &lt))
-				return (NULL);
-			lt.start = i + 1;
+			result[i] = get_next_word(&s, c);
+			if (!result[i])
+				return (free_result(result, i));
+			i++;
 		}
-		i++;
+		else
+			s++;
 	}
-	st.start = lt.start;
-	st.length = (i - lt.start);
-	if (i > lt.start && i > 0 && !ft_split_range(split, s, &st, &lt))
-		return (NULL);
-	split[lt.length] = 0;
-	return (split);
-}
-
-char    **ft_split(char const *s, char c)
-{
-	char	**split;
-
-	if (!(split = ft_alloc_split(s, c)))
-		return (NULL);
-	if (!ft_split_by_char(split, s, c))
-		return (NULL);
-	return (split);
-}
-
-#include <stdio.h>
-
-int main(void)
-{
-    char *str = "Hello,World,This,Is,A,Test";
-    char **result;
-    size_t i = 0;
-
-    result = ft_split(str, ',');
-    if (result)
-    {
-        while (result[i])
-        {
-            printf("%s\n", result[i]);
-            free(result[i]);
-            i++;
-        }
-        free(result);
-    }
-    return 0;
+	result[i] = NULL;
+	return (result);
 }
