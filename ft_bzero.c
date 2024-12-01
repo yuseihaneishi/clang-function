@@ -26,8 +26,8 @@ void	ft_bzero(void *s, int n)
 
 // int main() {
 //     char buffer[10] = "Hello";
-//     printf("Before: '%s'\n", buffer);
+//     printf("Before:'%s'\n", buffer);
 //     ft_bzero(buffer, 5);
-//     printf("After: '%s'\n", buffer);
+//     printf("After:'%s'\n", buffer);
 //     return (0);
 // }
